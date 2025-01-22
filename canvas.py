@@ -13,13 +13,18 @@ dt = 0
 character1 = Character_wasd(screen, 200, 200, 20)
 character2 = Character_arrow(screen, 400, 400, 20)
 
+pygame.mixer.init()  # Initialize the mixer module.
+sound1 = pygame.mixer.Sound('assets/breaking-glass.mp3')  # Load a sound.
+
+
 def update():
     character1.update()
     character2.update()
 
-    if abs(character1.x - character2.x) < 10 and abs(character1.y - character2.y) < 10:
+    if abs(character1.x - character2.x) < 50 and abs(character1.y - character2.y) < 50:
         character1.color = "green"
-        character2.color = "black"
+        # character2.color = "black"
+        sound1.play()  # Play the sound.
 
     
 
