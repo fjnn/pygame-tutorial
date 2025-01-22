@@ -21,6 +21,10 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.MOUSEBUTTONUP:
+            mouse_clicked_pos = pygame.mouse.get_pos()
+            character1.x = mouse_clicked_pos[0]
+            character1.y = mouse_clicked_pos[1]
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("seashell4")
