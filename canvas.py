@@ -1,5 +1,6 @@
 # Example file showing a basic pygame "game loop"
 import pygame
+from character import Character
 
 # pygame setup
 pygame.init()
@@ -8,8 +9,11 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
+character1 = Character(screen, 200, 200, 20)
+
 def update():
-    pass
+    character1.update()
+    
 
 while running:
     # poll for events
