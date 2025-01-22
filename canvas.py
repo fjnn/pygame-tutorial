@@ -1,6 +1,7 @@
 # Example file showing a basic pygame "game loop"
 import pygame
-from character import Character
+from character_wasd import Character as Character_wasd
+from character_arrow import Character as Character_arrow
 
 # pygame setup
 pygame.init()
@@ -9,10 +10,17 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 
-character1 = Character(screen, 200, 200, 20)
+character1 = Character_wasd(screen, 200, 200, 20)
+character2 = Character_arrow(screen, 400, 400, 20)
 
 def update():
     character1.update()
+    character2.update()
+
+    if abs(character1.x - character2.x) < 10 and abs(character1.y - character2.y) < 10:
+        character1.color = "green"
+        character2.color = "black"
+
     
 
 while running:
